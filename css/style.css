@@ -1,0 +1,1101 @@
+/* Основные стили */
+:root {
+    --dark-gray: #1a1a1a;
+    --medium-gray: #2d2d2d;
+    --light-gray: #3d3d3d;
+    --yellow: #ffd700;
+    --yellow-light: #ffea00;
+    --text-color: #e0e0e0;
+    --text-light: #ffffff;
+    --text-dark: #aaaaaa;
+    --glass-bg: rgba(45, 45, 45, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--dark-gray);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.background-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/background.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(8px) brightness(0.4);
+    z-index: -1;
+}
+
+.construction-bg {
+    background: url('images/construction-bg.jpg') no-repeat center center;
+    filter: blur(8px) brightness(0.3);
+}
+
+/* Навигация */
+.glass-nav {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.glass-nav.scrolled {
+    padding: 0.5rem 2rem;
+    box-shadow: var(--glass-shadow);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    color: var(--text-light);
+}
+
+.logo-highlight {
+    color: var(--yellow);
+    margin-left: 0.5rem;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+nav ul li a:hover {
+    color: var(--yellow);
+}
+
+nav ul li a.active {
+    color: var(--yellow);
+}
+
+nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--yellow);
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--yellow);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.hamburger .line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Главный контент */
+main {
+    padding-top: 80px;
+    min-height: calc(100vh - 200px);
+}
+
+.construction-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    padding: 2rem;
+}
+
+/* Стили для основного логотипа на странице */
+.main-logo-section {
+    padding: 4rem 0 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+.main-logo-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 3rem;
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+                inset 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.main-logo {
+    height: 120px;
+    width: auto;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.7));
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.main-logo:hover {
+    transform: scale(1.05) rotate(-5deg);
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.9));
+}
+
+.logo-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--yellow);
+    margin: 0;
+    text-shadow: var(--neon-glow);
+    animation: glow-pulse 3s infinite alternate;
+    line-height: 1;
+}
+
+.logo-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin: 0.5rem 0 0;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* Адаптивность для логотипа */
+@media (max-width: 992px) {
+    .main-logo {
+        height: 100px;
+    }
+    
+    .logo-title {
+        font-size: 3rem;
+    }
+    
+    .logo-subtitle {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-logo-section {
+        padding: 3rem 0 1rem;
+    }
+    
+    .main-logo {
+        height: 80px;
+    }
+    
+    .logo-title {
+        font-size: 2.5rem;
+    }
+    
+    .logo-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-logo-container {
+        padding: 1.5rem 2rem;
+    }
+    
+    .main-logo {
+        height: 60px;
+    }
+    
+    .logo-title {
+        font-size: 2rem;
+    }
+    
+    .logo-subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+}
+
+/* Герой секция */
+.hero {
+    display: flex;
+    align-items: center;
+    min-height: 90vh;
+    padding: 0 5%;
+    position: relative;
+}
+
+.hero-content {
+    flex: 1;
+    padding: 3rem;
+    max-width: 600px;
+    margin-right: 2rem;
+}
+
+.hero-image {
+    flex: 1;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease;
+}
+
+.hero-text {
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
+}
+
+.projects-hero {
+    padding: 8rem 5% 4rem;
+    text-align: center;
+}
+
+/* Карточки */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    transform: translateY(-5px);
+}
+
+.glow-border {
+    position: relative;
+}
+
+.glow-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    padding: 2px;
+    background: linear-gradient(45deg, var(--yellow), var(--yellow-light));
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glow-border:hover::before {
+    opacity: 1;
+}
+
+/* Кнопки */
+.cta-button {
+    background: linear-gradient(45deg, var(--yellow), var(--yellow-light));
+    color: var(--dark-gray);
+    border: none;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+}
+
+.filter-button {
+    background: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--glass-border);
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 0.5rem;
+}
+
+.filter-button.active {
+    background: var(--yellow);
+    color: var(--dark-gray);
+    border-color: var(--yellow);
+}
+
+.filter-button:hover {
+    border-color: var(--yellow);
+    color: var(--yellow);
+}
+
+.project-details {
+    background: transparent;
+    color: var(--yellow);
+    border: 1px solid var(--yellow);
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.project-details:hover {
+    background: var(--yellow);
+    color: var(--dark-gray);
+}
+
+/* Секции */
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.2rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+}
+
+.about {
+    display: flex;
+    padding: 5rem 5%;
+    align-items: center;
+}
+
+.about-image {
+    flex: 1;
+    margin-right: 3rem;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.about-content {
+    flex: 1;
+}
+
+.services {
+    padding: 5rem 5%;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--yellow);
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.cta-section {
+    padding: 5rem 5%;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+}
+
+.cta-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    background: transparent !important;
+}
+
+
+.glass-input:hover,
+.glass-input:focus {
+    background: rgba(40, 40, 40, 0.8) !important;
+    border-color: var(--yellow) !important;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2) !important;
+}
+
+.glass-input {
+    background: rgba(30, 30, 30, 0.7) !important;
+    border: 1px solid rgba(255, 215, 0, 0.3) !important;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    color: var(--text-color);
+    font-size: 1rem;
+    flex: 1;
+    min-width: 250px;
+    transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+    outline: none;
+    border-color: var(--yellow);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* Статистика */
+.stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    margin: 1rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--yellow);
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+/* Проекты */
+.projects-filter {
+    padding: 0 5% 3rem;
+    text-align: center;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 5% 5rem;
+}
+
+.project-card {
+    overflow: hidden;
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 250px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-overlay h3 {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.project-overlay p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.project-info {
+    padding: 1.5rem 0;
+}
+
+.project-info h3 {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.project-year {
+    color: var(--yellow);
+    font-size: 0.9rem;
+}
+
+/* Модальное окно проекта */
+.project-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10;
+}
+
+.close-modal:hover {
+    color: var(--yellow);
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-images {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.main-image {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.thumbnail-container {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.thumbnail:hover, .thumbnail.active {
+    opacity: 1;
+    border: 2px solid var(--yellow);
+}
+
+.modal-info {
+    padding: 1rem;
+}
+
+.project-title {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.project-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.project-category {
+    color: var(--yellow);
+}
+
+.project-description {
+    margin-bottom: 1.5rem;
+}
+
+.project-features {
+    margin-bottom: 2rem;
+}
+
+.project-features h3 {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.project-features ul {
+    list-style: none;
+}
+
+.project-features li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.project-features i {
+    color: var(--yellow);
+    margin-right: 0.5rem;
+}
+
+/* Страница в разработке */
+.construction-container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    padding: 3rem;
+    position: relative;
+}
+
+.construction-content h1 {
+    margin-bottom: 1.5rem;
+}
+
+.construction-content p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.construction-icon {
+    font-size: 5rem;
+    color: var(--yellow);
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.gear {
+    position: absolute;
+    color: var(--yellow-light);
+    font-size: 1.5rem;
+    animation: spin 4s linear infinite;
+}
+
+.construction-container {
+    background: linear-gradient(
+        135deg,
+        rgba(45, 45, 45, 0.8),
+        rgba(30, 30, 30, 0.9)
+    ) !important;
+    backdrop-filter: blur(12px) saturate(180%) !important;
+}
+
+.construction-container:hover {
+    background: linear-gradient(
+        135deg,
+        rgba(45, 45, 45, 0.9),
+        rgba(30, 30, 30, 0.95)
+    ) !important;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3) !important;
+}
+
+.gear1 {
+    top: -20px;
+    left: -20px;
+}
+
+.gear2 {
+    bottom: -15px;
+    right: -25px;
+    animation-direction: reverse;
+}
+
+.gear3 {
+    top: 50%;
+    right: -40px;
+    animation-duration: 6s;
+}
+
+.progress-container {
+    margin: 2rem 0;
+    text-align: left;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: var(--medium-gray);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--yellow), var(--yellow-light));
+    border-radius: 5px;
+    transition: width 1s ease;
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.countdown {
+    margin: 2rem 0;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.countdown-item {
+    background: var(--medium-gray);
+    padding: 1rem;
+    border-radius: 10px;
+    min-width: 80px;
+}
+
+.countdown-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--yellow);
+    display: block;
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    color: var(--text-dark);
+}
+
+#notify-me {
+    margin: 1rem 0;
+}
+
+.back-home {
+    color: var(--yellow);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.back-home:hover {
+    color: var(--yellow-light);
+}
+
+/* Подвал */
+.glass-footer {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--glass-border);
+    padding: 3rem 5% 1.5rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-links h4, .footer-contact h4, .footer-social h4 {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--yellow);
+}
+
+.footer-contact p {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+}
+
+.footer-contact i {
+    margin-right: 0.5rem;
+    color: var(--yellow);
+    width: 20px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--yellow);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--glass-border);
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+/* Эффекты текста */
+.glow-text {
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.highlight {
+    color: var(--yellow);
+    font-weight: 700;
+}
+
+/* Анимации */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 4rem;
+    }
+
+    .hero-content {
+        margin-right: 0;
+        margin-bottom: 3rem;
+        max-width: 100%;
+    }
+
+    .about {
+        flex-direction: column;
+    }
+
+    .about-image {
+        margin-right: 0;
+        margin-bottom: 3rem;
+        width: 100%;
+    }
+
+    .modal-body {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+
+    nav.active {
+        left: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 1rem 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .stats {
+        justify-content: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content, .about-content, .cta-content {
+        padding: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .countdown-item {
+        min-width: 60px;
+        padding: 0.5rem;
+    }
+
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+}
