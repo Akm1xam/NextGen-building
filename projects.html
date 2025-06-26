@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наши проекты | NextGen Строй</title>
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="background-blur"></div>
+    
+    <header class="glass-nav">
+        <div class="logo">
+            <span class="logo-text">NextGen</span>
+            <span class="logo-highlight">Строй</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="projects.html" class="active">Проекты</a></li>
+                <li><a href="under-construction.html">Услуги</a></li>
+                <li><a href="under-construction.html">Контакты</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="projects-hero">
+            <div class="hero-content glass-card">
+                <h1 class="glow-text">Наши <span class="highlight">проекты</span></h1>
+                <p class="hero-text">Посмотрите примеры наших работ и вдохновитесь для своего будущего проекта</p>
+            </div>
+        </section>
+
+        <section class="projects-filter">
+            <div class="filter-buttons">
+                <button class="filter-button active" data-filter="all">Все проекты</button>
+                <button class="filter-button" data-filter="residential">Жилые</button>
+                <button class="filter-button" data-filter="commercial">Коммерческие</button>
+                <button class="filter-button" data-filter="renovation">Реконструкция</button>
+            </div>
+        </section>
+
+        <section class="projects-grid">
+            <div class="project-card glass-card hover-glow" data-category="residential">
+                <div class="project-image">
+                    <img src="images/project1.jpg" alt="Жилой комплекс">
+                    <div class="project-overlay">
+                        <h3>ЖК "Северное сияние"</h3>
+                        <p>Современный жилой комплекс с развитой инфраструктурой</p>
+                        <button class="project-details">Подробнее</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>ЖК "Северное сияние"</h3>
+                    <span class="project-year">2022</span>
+                </div>
+            </div>
+
+            <div class="project-card glass-card hover-glow" data-category="commercial">
+                <div class="project-image">
+                    <img src="images/project2.jpg" alt="Бизнес центр">
+                    <div class="project-overlay">
+                        <h3>БЦ "Гранит"</h3>
+                        <p>Многофункциональный бизнес-центр класса А</p>
+                        <button class="project-details">Подробнее</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>БЦ "Гранит"</h3>
+                    <span class="project-year">2021</span>
+                </div>
+            </div>
+
+            <div class="project-card glass-card hover-glow" data-category="residential">
+                <div class="project-image">
+                    <img src="images/project4.jpg" alt="Коттеджный поселок">
+                    <div class="project-overlay">
+                        <h3>КП "Зеленые холмы"</h3>
+                        <p>Экологичный коттеджный поселок за городом</p>
+                        <button class="project-details">Подробнее</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>КП "Зеленые холмы"</h3>
+                    <span class="project-year">2023</span>
+                </div>
+            </div>
+
+            <div class="project-card glass-card hover-glow" data-category="renovation">
+                <div class="project-image">
+                    <img src="images/project3.jpg" alt="Реконструкция здания">
+                    <div class="project-overlay">
+                        <h3>Реконструкция фабрики "Красный Октябрь"</h3>
+                        <p>Превращение промышленного здания в культурный центр</p>
+                        <button class="project-details">Подробнее</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Реконструкция фабрики "Красный Октябрь"</h3>
+                    <span class="project-year">2020</span>
+                </div>
+            </div>
+
+            <div class="project-card glass-card hover-glow" data-category="commercial">
+                <div class="project-image">
+                    <img src="images/project5.jpg" alt="Торговый центр">
+                    <div class="project-overlay">
+                        <h3>ТЦ "Галерея"</h3>
+                        <p>Крупнейший торговый центр в регионе</p>
+                        <button class="project-details">Подробнее</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>ТЦ "Галерея"</h3>
+                    <span class="project-year">2019</span>
+                </div>
+            </div>
+
+            <div class="project-card glass-card hover-glow" data-category="residential">
+                <div class="project-image">
+                    <img src="images/orig.jpg" alt="Таунхаусы">
+                    <div class="project-overlay">
+                        <h3>Комплекс таунхаусов "Уют"</h3>
+                        <p>Современные таунхаусы для комфортной жизни</p>
+                        <button class="project-details">Подробнее</button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Комплекс таунхаусов "Уют"</h3>
+                    <span class="project-year">2021</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-modal">
+            <div class="modal-content glass-card">
+                <span class="close-modal">&times;</span>
+                <div class="modal-body">
+                    <div class="modal-images">
+                        <img src="images/project1.jpg" alt="Проект" class="main-image">
+                        <div class="thumbnail-container">
+                            <img src="images/project1.jpg" alt="Миниатюра" class="thumbnail active">
+                            <img src="images/project2.jpg" alt="Миниатюра" class="thumbnail">
+                            <img src="images/project3.jpg" alt="Миниатюра" class="thumbnail">
+                        </div>
+                    </div>
+                    <div class="modal-info">
+                        <h2 class="project-title">ЖК "Северное сияние"</h2>
+                        <div class="project-meta">
+                            <span class="project-year">2022</span>
+                            <span class="project-category">Жилой комплекс</span>
+                        </div>
+                        <p class="project-description">Жилой комплекс "Северное сияние" - это современный проект, сочетающий в себе комфорт, безопасность и экологичность. Комплекс расположен в живописном районе с развитой инфраструктурой.</p>
+                        <div class="project-features">
+                            <h3>Особенности проекта:</h3>
+                            <ul>
+                                <li><i class="fas fa-check"></i> 5 жилых корпусов переменной этажности</li>
+                                <li><i class="fas fa-check"></i> Подземный паркинг на 350 машиномест</li>
+                                <li><i class="fas fa-check"></i> Детский сад на территории</li>
+                                <li><i class="fas fa-check"></i> Фитнес-центр и SPA-зона</li>
+                                <li><i class="fas fa-check"></i> Охраняемая территория с ландшафтным дизайном</li>
+                            </ul>
+                        </div>
+                        <button class="cta-button">Заказать похожий проект</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span class="logo-text">NextGen</span>
+                <span class="logo-highlight">Строй</span>
+            </div>
+            <div class="footer-links">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="projects.html">Проекты</a></li>
+                    <li><a href="under-construction.html">Услуги</a></li>
+                    <li><a href="under-construction.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Строителей, 15</p>
+                <p><i class="fas fa-phone"></i> +7 (495) 123-45-67</p>
+                <p><i class="fas fa-envelope"></i> info@nextgen-stroy.ru</p>
+            </div>
+            <div class="footer-social">
+                <h4>Социальные сети</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 NextGen Строй. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
